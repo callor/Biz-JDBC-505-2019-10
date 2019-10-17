@@ -10,8 +10,10 @@ import com.biz.grade.service.extend.ScoreServiceV2Ext;
 /*
  * 1.학생이름을 입력받아서
  * 2.성적이리스트를 보여주고
- * 3.리스트를 보고 ID를 입력받아서
- * 4.해당 ID의 score 값을 삭제
+ * 3.학번입력받고
+ * 4.학번에 해당하는 성적리스트 보여주고
+ * 5.리스트를 보고 ID를 입력받아서
+ * 6.해당 ID의 score 값을 삭제
  * 
  */
 public class ScoreDelete_01 {
