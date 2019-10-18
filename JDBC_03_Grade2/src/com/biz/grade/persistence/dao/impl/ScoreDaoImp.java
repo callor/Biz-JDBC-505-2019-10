@@ -45,12 +45,6 @@ public class ScoreDaoImp extends ScoreDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
 		return null;
 	}
 
