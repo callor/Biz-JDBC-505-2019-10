@@ -204,7 +204,7 @@ public class ScoreServiceV3 {
 			scoreVO.setS_std(strStNum);
 		}
 		
-		System.out.printf("과목코드 (%s)>>",scoreVO.getS_subject());
+		System.out.printf("변경할 과목코드 (%s)>>",scoreVO.getS_subject());
 		String strSubject = scanner.nextLine();
 		
 		// 과목을 입력하고 Enter를 누르면
@@ -214,7 +214,7 @@ public class ScoreServiceV3 {
 			scoreVO.setS_subject(strSubject);
 		}
 		
-		System.out.printf("점수 (%d)>>",scoreVO.getS_score());
+		System.out.printf("변경할 점수 (%d)>>",scoreVO.getS_score());
 		String strScore = scanner.nextLine();
 		
 		/*
