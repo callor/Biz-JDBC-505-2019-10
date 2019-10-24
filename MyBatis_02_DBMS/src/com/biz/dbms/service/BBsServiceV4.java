@@ -37,6 +37,10 @@ public class BBsServiceV4 {
 				this.viewBBsList();
 				
 			} else if(strMenu.equalsIgnoreCase("U")) {
+				
+				this.updateBBS();
+				this.viewBBsList();
+				
 			} else if(strMenu.equalsIgnoreCase("D")) {
 				
 				this.deleteBBS();
@@ -78,6 +82,38 @@ public class BBsServiceV4 {
 		// 각 항목을 입력받고
 		// Enter를 입력하면 원래 데이터 유지
 		// 새로입력하면 새로운 값으로 대치
+		
+		BBsDao bbsDao = sqlSession.getMapper(BBsDao.class);
+		
+		
+		System.out.println("수정할ID");
+		String strID = scanner.nextLine();
+		long longId = Long.valueOf(strID);
+		
+		this.viewText(longId);
+		
+		// 수정할 ID에 해당하는 데이터가 bbsDTO에 담겨있는 상태
+		// ID 부터 모든 칼럼이 다 저장되어 있다.
+		BBsDTO bbsDTO = bbsDao.findById(longId);
+		System.out.println(bbsDTO.toString());
+		
+		bbsDTO.setBs_writer("내멋으로");
+		/*
+		 * 제목, 작성자, 내용등을 수정하더라도
+		 * id값은 처음에 bbsDTO에 담겨 있던 값이 그대로
+		 * 
+		 * 
+		 */
+		
+		// 여기에서 bbsDTO에는
+		// id는 원래 id 그대로
+		// 나머지는 수정된 상태로
+		bbsDao.update(bbsDTO);
+		
+		
+		
+		
+		
 		
 		
 	}
