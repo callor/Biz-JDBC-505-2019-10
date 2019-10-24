@@ -30,5 +30,10 @@
 			</dataSource>
 		</environment>
 	</environments>
+	
+	<mappers>
+		<mapper resource="com/biz/dbms/config/bbs-mapper.xml"/>
+	</mappers>
+	
 
 </configuration>
