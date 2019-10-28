@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.iolist.dao.IolistViewDao">
+ 
+ 	<select id="selectAll" resultType="IolistVO">
+ 		SELECT * FROM view_iolist
+ 	
+ 	</select>
+ 	<select id="findById" resultType="IolistVO"></select>
+ 	<select id="findByDCode" resultType="IolistVO"></select>
+ 	<select id="findByDName" resultType="IolistVO"></select>
+ 	<select id="findByPCode" resultType="IolistVO"></select>
+ 	<select id="findByPName" resultType="IolistVO"></select>
+ 
+ </mapper> 
