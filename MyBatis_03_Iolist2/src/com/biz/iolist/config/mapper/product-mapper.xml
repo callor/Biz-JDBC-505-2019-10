@@ -5,6 +5,10 @@
   
  <mapper namespace="com.biz.iolist.dao.ProductDao">
  
+ 	<select id="getMaxPCode" resultType="String">
+ 		SELECT MAX(p_code) FROM tbl_product
+ 	</select>
+ 
  	<select id="selectAll" resultType="ProductDTO">
  			SELECT 
 			 		P_CODE,
@@ -37,6 +41,22 @@
  	</select>
 
  	<insert id="insert" parameterType="ProductDTO">
+
+	INSERT INTO tbl_product (
+ 		P_CODE,
+		P_NAME,
+		P_IPRICE,
+		P_OPRICE,
+		P_VAT
+	) VALUES (
+		#{p_code},
+		#{p_name},
+		#{p_iprice},
+		#{p_oprice},
+		#{p_vat}
+	)
+ 	
+ 	
  	</insert>
  	<update id="update" parameterType="ProductDTO">
  		UPDATE tbl_product SET
@@ -46,6 +66,27 @@
 				P_VAT = #{p_vat}
 		WHERE P_CODE = #{p_code}		
  	</update>
- 	<delete id="delete"></delete>
- 
+ 	<delete id="delete">
+ 	
+ 		DELETE FROM tbl_product
+ 		WHERE p_code = #{p_code}
+ 	
+ 	</delete>
+ 	
+ 	<select id="findByIPrice" resultType="ProductDTO">
+ 	
+ 	 	SELECT P_CODE,P_NAME,P_IPRICE,	P_OPRICE,P_VAT
+			FROM tbl_product
+			WHERE P_iprice BETWEEN #{sprice} AND #{eprice} 
+ 	
+ 	</select>
+ 	
+ 	<select id="findBySName" resultType="ProductDTO">
+ 	 	SELECT P_CODE,P_NAME,P_IPRICE,P_OPRICE,	P_VAT
+			FROM tbl_product
+			WHERE P_NAME = #{p_name}
+ 	
+ 	</select>
+ 	
+ 	
  </mapper> 

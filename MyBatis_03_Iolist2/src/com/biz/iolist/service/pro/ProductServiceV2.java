@@ -1,4 +1,4 @@
-package com.biz.iolist.config.service;
+package com.biz.iolist.service.pro;
 
 import java.util.List;
 

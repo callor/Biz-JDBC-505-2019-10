@@ -1,6 +1,6 @@
 package com.biz.iolist.exec;
 
-import com.biz.iolist.config.service.ProductServiceV1;
+import com.biz.iolist.service.pro.ProductServiceV1;
 
 public class ProEx_01 {
 

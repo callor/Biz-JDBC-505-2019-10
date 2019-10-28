@@ -5,10 +5,80 @@
   
  <mapper namespace="com.biz.iolist.dao.DeptDao">
  
- 	<select id="selectAll"></select>
- 	<select id="findById"></select>
- 	<insert id="insert"></insert>
- 	<update id="update"></update>
- 	<delete id="delete"></delete>
- 
+ 	<select id="selectAll" resultType="DeptDTO">
+ 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+ 	</select>
+ 	<select id="findById"  resultType="DeptDTO">
+ 	 	SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_CODE = #{d_code}
+ 	</select>
+ 	<select id="findByName"  resultType="DeptDTO">
+ 	 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_NAME LIKE '%' ||  #{d_name} || '%'
+ 	</select>
+ 	<select id="findByCEO"  resultType="DeptDTO">
+	 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_CEO LIKE '%' ||  #{d_ceo} || '%'
+ 	</select>
+ 	<select id="findByNameAndCEO"  resultType="DeptDTO">
+ 	 	SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_NAME LIKE '%' || #{d_name} || '%' 
+				AND D_CEO LIKE '%' ||  #{d_ceo} || '%'
+ 	</select>
+ 	<insert id="insert" parameterType="DeptDTO">
+		INSERT INTO tbl_dept (
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		) VALUES (
+		 	#{d_code},
+			#{d_name},
+			#{d_ceo},
+			#{d_tel},
+			#{d_addr}
+		)
+ 	</insert>
+ 	<update id="update" parameterType="DeptDTO">
+ 		UPDATE tbl_dept SET
+			D_NAME = #{d_name},
+			D_CEO = #{d_ceo},
+			D_TEL = #{d_tel},
+			D_ADDR = #{d_addr}
+		WHERE D_CODE = #{d_code}
+ 	</update>
+ 	<delete id="delete">
+ 		DELETE FROM tbl_dept WHERE D_CODE = #{d_code}
+ 	</delete>
  </mapper> 
