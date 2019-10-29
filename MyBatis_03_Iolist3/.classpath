@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/bizwork/jdk_3rd/lombok.jar"/>
+	<classpathentry kind="lib" path="C:/bizwork/jdk_3rd/mybatis-3.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/bizwork/jdk_3rd/ojdbc6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

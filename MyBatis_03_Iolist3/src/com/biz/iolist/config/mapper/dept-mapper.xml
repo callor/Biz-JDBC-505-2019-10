@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.iolist.dao.DeptDao">
+ 
+ 	<select id="selectAll" resultType="DeptDTO">
+ 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+ 	</select>
+ 	<select id="findById"  resultType="DeptDTO">
+ 	 	SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_CODE = #{d_code}
+ 	</select>
+ 	<select id="findByName"  resultType="DeptDTO">
+ 	 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_NAME LIKE '%' ||  #{d_name} || '%'
+ 	</select>
+ 	<select id="findByCEO"  resultType="DeptDTO">
+	 		SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_CEO LIKE '%' ||  #{d_ceo} || '%'
+ 	</select>
+ 	<select id="findByNameAndCEO"  resultType="DeptDTO">
+ 	 	SELECT 
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		FROM tbl_dept
+		WHERE D_NAME LIKE '%' || #{d_name} || '%' 
+				AND D_CEO LIKE '%' ||  #{d_ceo} || '%'
+ 	</select>
+ 	<insert id="insert" parameterType="DeptDTO">
+		INSERT INTO tbl_dept (
+		 	D_CODE,
+			D_NAME,
+			D_CEO,
+			D_TEL,
+			D_ADDR
+		) VALUES (
+		 	#{d_code,jdbcType=VARCHAR},
+			#{d_name,jdbcType=VARCHAR},
+			#{d_ceo,jdbcType=VARCHAR},
+			#{d_tel,jdbcType=VARCHAR},
+			#{d_addr,jdbcType=VARCHAR}
+		)
+ 	</insert>
+ 	<update id="update" parameterType="DeptDTO">
+ 		UPDATE tbl_dept SET
+			D_NAME = #{d_name,jdbcType=VARCHAR},
+			D_CEO = #{d_ceo,jdbcType=VARCHAR},
+			D_TEL = #{d_tel,jdbcType=VARCHAR},
+			D_ADDR = #{d_addr,jdbcType=VARCHAR}
+		WHERE D_CODE = #{d_code}
+ 	</update>
+ 	<delete id="delete">
+ 		DELETE FROM tbl_dept WHERE D_CODE = #{d_code}
+ 	</delete>
+ </mapper> 
