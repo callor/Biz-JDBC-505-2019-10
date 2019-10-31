@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.iolist.dao.IolistDao">
+ 
+ 	<select id="selectAll"></select>
+ 	<select id="findById">
+ 		SELECT * FROM tbl_iolist WHERE io_seq = #{io_seq}
+ 	</select>
+ 	<insert id="insert">
+ 		INSERT INTO tbl_iolist (
+		 	IO_SEQ,
+			IO_DATE,
+			IO_INOUT,
+			IO_QTY,
+			IO_PRICE,
+			IO_TOTAL,
+			IO_PCODE
+		) VALUES (
+			SEQ_IOLIST.NEXTVAL,
+			#{io_seq},
+			#{io_date},
+			#{io_inout},
+			#{io_qty},
+			#{io_price},
+			#{io_total},
+			#{io_pcode},
+			#{io_dcode} )
+ 	
+ 	</insert>
+ 	<update id="update"></update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper> 
